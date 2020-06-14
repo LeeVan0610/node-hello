@@ -4,7 +4,7 @@ steps:
     args:
       - "build"
       - "-t"
-      - "gcr.io/${PROJECT_ID}/node-hello:${TAG_NAME}"
+      - "gcr.io/${PROJECT_ID}/node-hello"
       - "-f"
       - "./Dockerfile"
       - "."
