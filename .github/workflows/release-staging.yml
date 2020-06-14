@@ -1,0 +1,26 @@
+# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
+# For more information see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+name: Staging branch
+
+on:
+  push:
+    branches: 
+      - staging
+
+jobs:
+
+  build:
+ 
+    runs-on: ubuntu-latest
+ 
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/leevan0610/node-hello/node-hello:$GITHUB_SHA
+    - name: Login to Registry
+      run: docker login docker.pkg.github.com -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: login
+      run: echo ${GITHUB_TOKEN} | docker login -u LeeVan0610 --password-stdin docker.pkg.github.com
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB }}
+    - name: Publish to Registry
