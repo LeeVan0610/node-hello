@@ -1,5 +1,6 @@
+# Build the helloworld container image.
 steps:
-  # Build the helloworld container image.
+  
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "build"
@@ -10,5 +11,6 @@ steps:
       - "."
 images:
   - gcr.io/${PROJECT_ID}/node-hello
-  - name: "gcr.io/cloud-builders/gcloud"
-    args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
+# Extra step to Deploy New Revision to Cloud Run
+- name: "gcr.io/cloud-builders/gcloud"
+  args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
