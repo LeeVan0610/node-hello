@@ -8,3 +8,5 @@ steps:
       - "-f"
       - "./Dockerfile"
       - "."
+images:
+  - gcr.io/${PROJECT_ID}/node-hello:${TAG_NAME}
