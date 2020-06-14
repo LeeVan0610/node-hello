@@ -8,7 +8,7 @@ steps:
       - "./Dockerfile"
       - "."
   - name: "gcr.io/cloud-builders/gcloud"
-    args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
+    args: ['run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
 images:
   - gcr.io/${PROJECT_ID}/node-hello
 
