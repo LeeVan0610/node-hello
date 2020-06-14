@@ -10,6 +10,5 @@ steps:
       - "."
 images:
   - gcr.io/${PROJECT_ID}/node-hello
-
-- name: "gcr.io/cloud-builders/gcloud"
-  args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
+  - name: "gcr.io/cloud-builders/gcloud"
+    args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
