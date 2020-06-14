@@ -10,6 +10,6 @@ steps:
       - "."
 images:
   - gcr.io/${PROJECT_ID}/node-hello
-# Extra step to Deploy New Revision to Cloud Run
+
 - name: "gcr.io/cloud-builders/gcloud"
   args: ['beta', 'run', 'deploy', 'dashboard', '--image', 'gcr.io/grove-staging/node-hello:latest', '--region', 'asia-east1', '--allow-unauthenticated', '--platform', 'managed']
