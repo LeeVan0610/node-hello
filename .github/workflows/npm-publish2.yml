@@ -4,8 +4,9 @@
 name: release created
 
 on:
-  release:
-    types: [created]
+  push:
+    branches:
+      - release
 
 jobs:
   build:
