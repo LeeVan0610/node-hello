@@ -3,7 +3,8 @@ steps:
   - name: "gcr.io/cloud-builders/docker"
     args:
       - "build"
-      - "gcr.io/${PROJECT_ID}/node-hello/node-hello:${TAG_NAME}"
+      - "-t"
+      - "gcr.io/${PROJECT_ID}/node-hello:${TAG_NAME}"
       - "-f"
       - "./Dockerfile"
       - "."
